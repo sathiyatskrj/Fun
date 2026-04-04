@@ -8,6 +8,13 @@
   height: 300px;
 }
 
+@media (max-width: 480px) {
+  .cake {
+    transform: scale(0.8);
+    margin-top: -40px;
+  }
+}
+
 /* ============================================== BASE */
 .cake:after {
   background: rgba(255, 255, 255, 1);

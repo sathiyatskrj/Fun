@@ -6,13 +6,14 @@ $('document').ready(function(){
 		var vw;
 		$(window).resize(function(){
 			 vw = $(window).width()/2;
+			 let spread = window.innerWidth < 480 ? 30 : (window.innerWidth < 768 ? 60 : 100);
 			$('#b1,#b2,#b3,#b4,#b5,#b6').stop();
-			$('#b11').animate({top:240, left: vw-250},500);
-			$('#b22').animate({top:240, left: vw-150},500);
-			$('#b33').animate({top:240, left: vw-50},500);
-			$('#b44').animate({top:240, left: vw+50},500);
-			$('#b55').animate({top:240, left: vw+150},500);
-			$('#b66').animate({top:240, left: vw+250},500);
+			$('#b11').animate({top:240, left: vw - (spread * 2.5)},500);
+			$('#b22').animate({top:240, left: vw - (spread * 1.5)},500);
+			$('#b33').animate({top:240, left: vw - (spread * 0.5)},500);
+			$('#b44').animate({top:240, left: vw + (spread * 0.5)},500);
+			$('#b55').animate({top:240, left: vw + (spread * 1.5)},500);
+			$('#b66').animate({top:240, left: vw + (spread * 2.5)},500);
 		});
 
 	$('#magic-gift-box').click(function(){
@@ -53,12 +54,12 @@ $('document').ready(function(){
 		});
 	});
 
-	function loopOne() { $('#b1').animate({left:1000*Math.random(),bottom:500*Math.random()},10000,function(){ loopOne(); }); }
-	function loopTwo() { $('#b2').animate({left:1000*Math.random(),bottom:500*Math.random()},10000,function(){ loopTwo(); }); }
-	function loopThree() { $('#b3').animate({left:1000*Math.random(),bottom:500*Math.random()},10000,function(){ loopThree(); }); }
-	function loopFour() { $('#b4').animate({left:1000*Math.random(),bottom:500*Math.random()},10000,function(){ loopFour(); }); }
-	function loopFive() { $('#b5').animate({left:1000*Math.random(),bottom:500*Math.random()},10000,function(){ loopFive(); }); }
-	function loopSix() { $('#b6').animate({left:1000*Math.random(),bottom:500*Math.random()},10000,function(){ loopSix(); }); }
+	function loopOne() { $('#b1').animate({left:Math.max(10, (window.innerWidth-110)*Math.random()),bottom:500*Math.random()},10000,function(){ loopOne(); }); }
+	function loopTwo() { $('#b2').animate({left:Math.max(10, (window.innerWidth-110)*Math.random()),bottom:500*Math.random()},10000,function(){ loopTwo(); }); }
+	function loopThree() { $('#b3').animate({left:Math.max(10, (window.innerWidth-110)*Math.random()),bottom:500*Math.random()},10000,function(){ loopThree(); }); }
+	function loopFour() { $('#b4').animate({left:Math.max(10, (window.innerWidth-110)*Math.random()),bottom:500*Math.random()},10000,function(){ loopFour(); }); }
+	function loopFive() { $('#b5').animate({left:Math.max(10, (window.innerWidth-110)*Math.random()),bottom:500*Math.random()},10000,function(){ loopFive(); }); }
+	function loopSix() { $('#b6').animate({left:Math.max(10, (window.innerWidth-110)*Math.random()),bottom:500*Math.random()},10000,function(){ loopSix(); }); }
 
 	$('#balloons_flying').click(function(){
 		$('.balloon-border').animate({top:-500},8000);
@@ -95,12 +96,13 @@ $('document').ready(function(){
 		$('#b4').attr('id','b44')
 		$('#b5').attr('id','b55')
 		$('#b6').attr('id','b66')
-		$('#b11').animate({top:240, left: vw-250},500);
-		$('#b22').animate({top:240, left: vw-150},500);
-		$('#b33').animate({top:240, left: vw-50},500);
-		$('#b44').animate({top:240, left: vw+50},500);
-		$('#b55').animate({top:240, left: vw+150},500);
-		$('#b66').animate({top:240, left: vw+250},500);
+		let spread = window.innerWidth < 480 ? 30 : (window.innerWidth < 768 ? 60 : 100);
+		$('#b11').animate({top:240, left: vw - (spread * 2.5)},500);
+		$('#b22').animate({top:240, left: vw - (spread * 1.5)},500);
+		$('#b33').animate({top:240, left: vw - (spread * 0.5)},500);
+		$('#b44').animate({top:240, left: vw + (spread * 0.5)},500);
+		$('#b55').animate({top:240, left: vw + (spread * 1.5)},500);
+		$('#b66').animate({top:240, left: vw + (spread * 2.5)},500);
 		$('.balloons').css('opacity','0.9');
 		$('.balloons h2').fadeIn(3000);
 		$(this).fadeOut('slow').delay(3000).promise().done(function(){
@@ -165,7 +167,7 @@ function initCanvasTree() {
 
     var ctx = canvas[0].getContext('2d');
     canvas[0].width = canvas.width() || 1100;
-    canvas[0].height = canvas.height() || 680;
+    canvas[0].height = canvas.height() || (window.innerWidth < 768 ? window.innerWidth * 1.2 : 680);
     var width = canvas[0].width;
     var height = canvas[0].height;
 

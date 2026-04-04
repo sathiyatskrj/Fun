@@ -1034,7 +1034,12 @@ audio {
 	-o-transform: translate(0px, -500px);
 	-ms-transform: translate(0px, -500px);
 	transform: translate(0px, -500px);
+}
 
+@media (max-width: 768px) {
+  .bannar {
+    width: 80%;
+  }
 }
 
 .bannar-come {
@@ -1134,7 +1139,7 @@ audio {
 	}
 }
 
-o @keyframes bannar_come {
+@keyframes bannar_come {
 	0% {
 		transform: translate(0px, -1000px);
 	}
@@ -1164,6 +1169,17 @@ o @keyframes bannar_come {
 	height: 183px;
 	background-repeat: no-repeat no-repeat;
 	background-size: 100px 183px;
+}
+
+@media (max-width: 480px) {
+  .balloons {
+    width: 60px;
+    height: 110px;
+    background-size: 60px 110px;
+  }
+  .balloons h2 {
+    font-size: 30px !important;
+  }
 }
 
 .balloons h2 {
