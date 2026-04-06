@@ -5,10 +5,8 @@ A modern, interactive birthday surprise page with premium animations and effects
 ## Features
 
 - **Premium Dark/Glassmorphism Design** - Modern aesthetic with glass-like surfaces
-- **GSAP Animations** - Smooth, professional animations throughout
 - **Interactive Elements**:
   - Draggable balloons (drag to move, double-click to pop!)
-  - Photo gallery with lightbox
   - Enhanced signature pad
   - Gift box opening animation
   - Confetti effects
@@ -19,8 +17,9 @@ A modern, interactive birthday surprise page with premium animations and effects
 ## Quick Start
 
 1. Open `index.html` in a modern web browser
-2. Click the magic gift box to start the experience
-3. Enjoy the birthday celebration!
+2. Click/tap the magic gift box to start the experience
+3. Follow the on-screen buttons to progress through the experience
+4. Enjoy the birthday celebration!
 
 ## File Structure
 
@@ -28,53 +27,31 @@ A modern, interactive birthday surprise page with premium animations and effects
 ├── index.html              # Main HTML file
 ├── assets/
 │   ├── audio/
-│   │   └── hbd.mp3         # Birthday music
+│   │   └── hbd.mp3        # Birthday music
 │   └── images/
-│       ├── img.png         # Gallery photo 1
-│       └── img2.png        # Gallery photo 2
+│       ├── img.png         # Photo 1
+│       └── img2.png        # Photo 2
 ├── css/
-│   └── theme.css           # Modern design system with CSS variables
+│   └── theme.css           # Modern design system
 ├── js/
 │   ├── config.js           # Personalization settings
 │   └── components/
-│       ├── animation-controller.js  # GSAP animations
-│       ├── gallery.js      # Photo gallery module
-│       ├── signature.js    # Signature pad
-│       └── balloons.js      # Draggable balloons
+│       ├── balloons.js     # Draggable balloons
+│       └── signature.js    # Signature pad
 └── file/
-    ├── effect.js           # Tree animation
-    ├── function.js         # Experience flow
+    ├── effect.js           # Main animation sequence
+    ├── function.js         # Utility functions
     ├── love.js             # Love tree effect
     ├── default.css         # Base styles
     ├── stylesheet.css      # Main styles
     ├── cake.css           # Cake styles
-    └── premium-features.css  # Premium UI styles
+    ├── premium-features.css # Premium UI styles
+    └── *.js               # Animation libraries (Jscex)
 ```
 
 ## Customization
 
-Edit `js/config.js` to personalize:
-
-```javascript
-var CONFIG = {
-  name: "Raziya",
-  nameLetters: ["R", "A", "Z", "I", "Y", "A"],
-  messages: ["Your", "Custom", "Messages"],
-  photos: ["path/to/photo1.jpg", "path/to/photo2.jpg"],
-  colors: {
-    primary: "#fb7185",
-    secondary: "#a78bfa",
-    gold: "#fbbf24"
-  }
-};
-```
-
-## Technologies Used
-
-- **GSAP** - Animation library
-- **CSS Variables** - Modern theming system
-- **Vanilla JavaScript** - No jQuery!
-- **Google Fonts** - Typography (Great Vibes, Outfit, Inter)
+Edit `js/config.js` to personalize the name, messages, and colors.
 
 ## Browser Support
 
@@ -83,6 +60,6 @@ var CONFIG = {
 - Safari 13+
 - Edge 80+
 
-## License
+## Credits
 
 Made with ❤️ for Raziya's birthday
