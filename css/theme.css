@@ -1,17 +1,20 @@
 /* ============================================
-   MODERN DESIGN SYSTEM
-   Premium Dark/Glassmorphism Theme
+   MODERN DESIGN SYSTEM - CSS Variables
    ============================================ */
 
 :root {
-  /* Background */
+  /* Colors */
   --bg-deep: #0f172a;
   --bg-dark: #1e293b;
-  --bg-surface: rgba(30, 41, 59, 0.7);
+  --bg-surface: rgba(30, 41, 59, 0.85);
+  --bg-glass: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.15);
   
-  /* Accent Colors */
+  /* Accents */
   --rose-pink: #fb7185;
+  --rose-glow: rgba(251, 113, 133, 0.5);
   --gold: #fbbf24;
+  --gold-glow: rgba(251, 191, 36, 0.5);
   --purple: #a78bfa;
   --emerald: #34d399;
   --sky: #60a5fa;
@@ -20,19 +23,67 @@
   /* Text */
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
+  --text-muted: #64748b;
   
   /* Fonts */
   --font-display: 'Great Vibes', cursive;
   --font-heading: 'Outfit', sans-serif;
   --font-body: 'Inter', sans-serif;
+  
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  
+  /* Radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-full: 9999px;
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 500ms ease;
 }
 
-/* Body Background */
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: linear-gradient(135deg, var(--bg-deep) 0%, var(--bg-dark) 100%);
   font-family: var(--font-body);
+  background: linear-gradient(135deg, var(--bg-deep) 0%, var(--bg-dark) 100%);
   color: var(--text-primary);
   min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Glass Effect */
+.glass {
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
 }
 
 /* Glow Text */
@@ -40,102 +91,20 @@ body {
   text-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
 }
 
-/* Custom Button Style */
-.btn.custom-btn {
-  background: linear-gradient(135deg, var(--rose-pink), var(--purple));
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 25px;
-  font-family: var(--font-heading);
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.btn.custom-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(251, 113, 133, 0.4);
-}
-
-.btn.custom-btn:active {
-  transform: translateY(0);
-}
-
-/* Glass Effect */
-.glass-message {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 15px;
-}
-
-.glass-nav {
-  background: rgba(15, 23, 42, 0.95) !important;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Floating Animation */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-.floating-box {
-  animation: float 3s ease-in-out infinite;
-}
-
-/* Modal Card */
-.modal-card {
-  background: var(--bg-surface) !important;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.15) !important;
-  border-radius: 20px !important;
-}
-
-/* Signature Section */
-.signature-section {
-  text-align: center;
-  padding: 20px;
-}
-
-/* APPROVED Stamp */
-#approved-stamp {
-  font-family: var(--font-heading);
-  font-size: 28px;
-  font-weight: bold;
-  color: var(--gold);
-  border: 4px solid var(--gold);
-  padding: 10px 30px;
-  display: inline-block;
-  transform: rotate(-15deg);
-  margin-top: 15px;
-}
-
-.slam-animation {
-  animation: stamp-slam 0.5s ease-out;
-}
-
-@keyframes stamp-slam {
-  0% { transform: scale(3) rotate(-15deg); opacity: 0; }
-  50% { transform: scale(1.1) rotate(-15deg); }
-  100% { transform: scale(1) rotate(-15deg); opacity: 1; }
-}
-
-/* Loading Content */
-.loading-content {
-  text-align: center;
-}
-
-/* Text Gradient */
-.text-gradient {
+/* Utility */
+.text-center { text-align: center; }
+.text-gradient { 
   background: linear-gradient(135deg, var(--rose-pink), var(--gold));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  :root {
+    --space-lg: 1rem;
+    --space-xl: 1.5rem;
+  }
+  body { font-size: 14px; }
 }

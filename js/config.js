@@ -86,6 +86,12 @@ var CONFIG = {
   // Audio file path
   audioSrc: "assets/audio/hbd.mp3",
   
+  // Photo gallery images for memory lane
+  photos: [
+    "assets/images/img.png",
+    "assets/images/img2.png"
+  ],
+  
   // Theme accent colors
   colors: {
     primary: "#fb7185",
